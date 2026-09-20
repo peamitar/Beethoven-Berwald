@@ -529,8 +529,7 @@ const HAND = `<svg viewBox="0 0 150 58" class="hand" aria-hidden="true">
 
 function envelopeHTML(key){
   const L = LETTERS[key], b = key==="beethoven";
-  const t1 = `<span class="t1">${L.piece}</span>`;
-  const t2 = `<span class="t2">${L.short.en}</span>`;
+  const t1 = `<span class="t1">${L.title}</span>`;
   return `
   <div class="env-wrap">
     <div class="env ${L.cls}" role="button" tabindex="0" data-letter="${key}" aria-haspopup="dialog" aria-label="${L.en.title}">
