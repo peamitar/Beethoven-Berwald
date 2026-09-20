@@ -10,9 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
-/* Neulis Cursive is not hosted on Google Fonts. If it is installed on the device it is used;
-   otherwise Pinyon Script stands in. To ship the real font, add an @font-face here. */
-@font-face{font-family:"Neulis Cursive";src:local("Neulis Cursive"),local("NeulisCursive-Regular"),local("Neulis Cursive Regular");font-display:swap}
 
 :root{
   --paper:#f8f3e0; --ink:#23221e;
@@ -20,8 +17,8 @@
   /* darker shades of the palette, only for text on paper (contrast) */
   --orange-txt:#b5522f; --green-txt:#357550;
   --env:#efe2c0; --env-front:#f2e7c9; --flap:#f6eed5; --stamp-paper:#fffbee;
-  --script:"Neulis Cursive","Pinyon Script","Snell Roundhand","Apple Chancery",cursive;
-  --sans:"IBM Plex Sans Thai","Noto Sans Thai",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --script:"Cedarville Cursive",cursive;
+  --sans:"IBM Plex Sans Thai",system-ui,-apple-system,"IBM Plex Sans Thai",sans-serif;
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='a' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32  0 0 0 0 .26  0 0 0 0 .16  0 0 0 1 -.42'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url%28%23a%29'/%3E%3C/svg%3E");
   --mottle:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='b' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.018 .03' numOctaves='3' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .36  0 0 0 0 .2  0 0 0 .55 -.16'/%3E%3C/filter%3E%3Crect width='420' height='420' filter='url%28%23b%29'/%3E%3C/svg%3E");
   color-scheme:light;
@@ -55,12 +52,7 @@ a{color:inherit}
 /* ───────── hero ───────── */
 .hero{position:relative;text-align:center;padding:14px 18px 6px}
 .mark{position:relative;padding:46px 0 44px}
-.logo{position:relative;display:block;width:100vw;max-width:none;height:auto;margin:0 calc(50% - 50vw);}
-.d{position:absolute;pointer-events:none}
-.d-sq{left:1%;top:16px;width:70px}
-.d-rest{right:4%;top:6px;width:30px}
-.d-hex{left:5%;bottom:-2px;width:40px}
-.d-dots{right:5%;bottom:6px;width:56px}
+.logo{position:relative;display:block;width:100%;max-width:none;height:auto;margin:0;}
 .when{margin-top:18px;font-size:clamp(24px,7.4vw,31px);font-weight:700;line-height:1.2;letter-spacing:-.005em}
 .venue{margin-top:6px;font-size:15px;line-height:1.5}
 .venue span{display:block;font-weight:500}
@@ -90,9 +82,6 @@ html[lang="th"] .intro h2{font-family:var(--sans);font-weight:700;font-size:clam
 .env.open .env-letter{transform:translateY(-72%)}
 .env-front{left:0;right:0;top:24%;bottom:0;z-index:3;background:var(--env-front);border-radius:0 0 5px 5px;box-shadow:inset 0 1.5px 0 rgba(255,255,255,.45),inset 0 7px 8px -7px rgba(35,34,30,.28)}
 .env-piece{position:absolute;left:0;right:0;bottom:7.5%;text-align:center;font-size:clamp(10.5px,3.1vw,12.5px);font-weight:500;line-height:1.3;padding:0 16%}
-.lips{position:absolute;width:12%;color:var(--acc);opacity:.16}
-.lips.l1{left:4%;bottom:8%;transform:rotate(-14deg)}
-.lips.l2{right:4%;bottom:14%;transform:rotate(10deg) scaleX(-1)}
 .flap{left:0;right:0;top:24%;height:46%;z-index:4;transform-origin:50% 0;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.55,.05,.25,1),z-index 0s .4s}
 .env.open .flap{transform:rotateX(180deg);z-index:1}
 .flap-f,.flap-b{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}
@@ -106,7 +95,6 @@ html[lang="th"] .flap-title .t1{font-family:var(--sans);font-size:.46em;font-wei
 .env.open .ov{opacity:0}
 .ov svg{position:absolute;color:var(--acc);overflow:visible}
 .ov .pm1{left:3.5%;top:22%;width:20%;transform:rotate(-12deg);opacity:.85}
-.ov .pm2{left:19%;top:19.5%;width:14%;transform:rotate(9deg);opacity:.75}
 .ov .hand{right:3.5%;top:17%;width:32%;transform:rotate(-5deg);opacity:.9;color:var(--orange)}
 .env--w .ov .hand{color:var(--green)}
 .hand text{font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:.06em}
