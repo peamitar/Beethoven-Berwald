@@ -341,9 +341,9 @@ const UI = {
 const LETTERS = {
   beethoven:{
     cls:"env--b", short:{en:"Beethoven",th:"Beethoven"}, from:["L. V. Beethoven","Vienna, 1800"], rom:"I",
-    piece:"L.V. Beethoven",
+    piece:"Septet in E♭ major, Op. 20",
     en:{
-      title:"Septet in E♭ major, Op. 20",
+      title:"Letter from Beethoven",
       greet:"Dearest Gentle Reader,",
       body:[
         "Allow me to tell you a little secret about my Septet in E♭ major, Op. 20.",
@@ -373,7 +373,7 @@ const LETTERS = {
       ]
     },
     th:{
-      title:"Septet in E-flat major, Op. 20",
+      title:"จดหมายจาก Beethoven",
       greet:"Dearest Gentle Reader,",
       body:[
         "ขออนุญาตเล่าเรื่องเล็ก ๆ เรื่องหนึ่งเกี่ยวกับ Septet in E♭ major, Op. 20 ของข้าพเจ้า",
@@ -407,9 +407,9 @@ const LETTERS = {
   },
   berwald:{
     cls:"env--w", short:{en:"Berwald",th:"Franz Berwald"}, from:["Franz Berwald","Stockholm, 1818"], rom:"II",
-    piece:"Franz Berwald",
+    piece:"Grand Septet in B♭ major",
     en:{
-      title:"Grand Septet in B♭ major",
+      title:"Letter from Berwald",
       greet:"Dearest Gentle Reader,",
       body:[
         "Allow me to tell you a little about Grand Septet in B♭ major.",
@@ -445,7 +445,7 @@ const LETTERS = {
       ]
     },
     th:{
-      title:"Grand Septet in B♭ major",
+      title:"จดหมายจาก ฺำพไฟสก",
       greet:"Dearest Gentle Reader,",
       body:[
         "ขออนุญาตเล่าเรื่องเล็ก ๆ เรื่องหนึ่งเกี่ยวกับ Grand Septet in B♭ major ของข้าพเจ้า",
@@ -529,7 +529,8 @@ const HAND = `<svg viewBox="0 0 150 58" class="hand" aria-hidden="true">
 
 function envelopeHTML(key){
   const L = LETTERS[key], b = key==="beethoven";
-  const t1 = `<span class="t1">${L.title}</span>`;
+  const t1 = `<span class="t1">${L.piece}</span>`;
+  const t2 = `<span class="t2">${L.short.en}</span>`;
   return `
   <div class="env-wrap">
     <div class="env ${L.cls}" role="button" tabindex="0" data-letter="${key}" aria-haspopup="dialog" aria-label="${L.en.title}">
