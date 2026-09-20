@@ -98,103 +98,265 @@
   .meta strong{font-weight:600;}
   .meta .venue{display:block; margin-top:2px; font-size:.85rem; opacity:.8;}
 
-  /* ---------- envelope (diamond flap) ---------- */
- .letters { width: 100%; margin-top: 28px; display: flex; flex-direction: column; gap: 22px;}
- .envelope-btn { width: 100%; max-width: 100%; padding: 0; border: none; background: none;
-                display: block; cursor: pointer; -webkit-tap-highlight-color: transparent; }
- .env-frame { position: relative;
+ /* =========================================================
+   ENVELOPE — MOBILE FIRST
+   ========================================================= */
 
-  /* Mobile-friendly size */
-  width: min(88vw, 380px);
-  aspect-ratio: 3 / 3.7;
-  margin: 0 auto;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 12px 26px -16px var(--shadow);
+.letters {
+  width: 100%;
+  margin: 28px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-/* ---------- envelope flaps ---------- */
+/* The clickable envelope */
+.envelope-btn {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  display: block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
 
-.flap { position: absolute; inset: 0; }
-.flap-top { background: var(--env-dark); clip-path: polygon(0% 0%, 100% 0%, 50% 52%); }
-.flap-left { background: var(--env); clip-path: polygon(0% 0%, 0% 100%, 50% 52%); }
-.flap-right { background: var(--env); clip-path: polygon(100% 0%, 100% 100%, 50% 52%); }
-.flap-bottom { background: var(--env); clip-path: polygon(0% 100%, 100% 100%, 50% 52%); }
+/* Physical envelope */
+.env-frame {
+  position: relative;
 
-/* ---------- letter ---------- */
-.env-letter { position: absolute; left: 7%; right: 7%; top: 7%;
-              width: auto; height: 55%; box-sizing: border-box; background: var(--paper);
-              border-radius: 3px 3px 8px 8px; box-shadow: 0 8px 18px -10px var(--shadow);
-              padding: 8% 8% 7%; text-align: left; z-index: 4; display: flex;
-              flex-direction: column; overflow: hidden; 
-            }
+  width: calc(100% - 32px);
+  max-width: 390px;
 
-/* ---------- text ---------- */
+  margin: 0 auto;
+
+  aspect-ratio: 1.05 / 1;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  background: var(--env);
+
+  box-shadow:
+    0 14px 30px -18px var(--shadow);
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   ENVELOPE FLAPS
+   ========================================================= */
+
+.flap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Back/top flap */
+.flap-top {
+  z-index: 1;
+
+  background: var(--env-dark);
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 53%
+  );
+}
+
+/* Left side */
+.flap-left {
+  z-index: 3;
+
+  background: var(--env);
+
+  clip-path: polygon(
+    0 0,
+    50% 53%,
+    0 100%
+  );
+}
+
+/* Right side */
+.flap-right {
+  z-index: 3;
+
+  background: var(--env);
+
+  clip-path: polygon(
+    100% 0,
+    100% 100%,
+    50% 53%
+  );
+}
+
+/* Bottom flap */
+.flap-bottom {
+  z-index: 4;
+
+  background: var(--env);
+
+  clip-path: polygon(
+    0 100%,
+    50% 53%,
+    100% 100%
+  );
+}
+
+
+/* =========================================================
+   LETTER — THE IMPORTANT PART
+   ========================================================= */
+
+.env-letter {
+  position: absolute;
+
+  /* Keep the letter inside the envelope */
+  left: 9%;
+  right: 9%;
+
+  top: 9%;
+
+  width: auto;
+  height: 58%;
+
+  box-sizing: border-box;
+
+  z-index: 2;
+
+  background: var(--paper);
+
+  border-radius: 3px 3px 5px 5px;
+
+  box-shadow:
+    0 5px 12px rgba(0,0,0,.12);
+
+  padding: 7% 8% 6%;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: left;
+
+  overflow: hidden;
+}
+
+
+/* Letter label */
 
 .env-label {
   flex-shrink: 0;
 
-  font-size: clamp(9px, 2.5vw, 11px);
-  line-height: 1.2;
+  margin: 0 0 8px;
 
-  letter-spacing: .12em;
-  font-weight: 600;
-
-  opacity: .65;
-
-  padding-bottom: 7px;
-  margin-bottom: 9px;
+  padding-bottom: 6px;
 
   border-bottom: 1px solid var(--line);
+
+  font-size: clamp(8px, 2.3vw, 10px);
+
+  line-height: 1.2;
+
+  letter-spacing: .13em;
+
+  font-weight: 600;
+
+  opacity: .6;
 }
 
+
+/* Letter title */
+
 .env-headline {
+  margin: 0;
+
   font-family: "Baloo 2", sans-serif;
+
   font-weight: 700;
 
-  font-size: clamp(16px, 5vw, 21px);
-  line-height: 1.15;
+  font-size: clamp(
+    16px,
+    5vw,
+    22px
+  );
+
+  line-height: 1.08;
 
   overflow-wrap: break-word;
 }
 
+
+/* Letter subtitle */
+
 .env-sub {
   margin-top: 7px;
 
-  font-size: clamp(11px, 3.2vw, 14px);
-  line-height: 1.35;
+  font-size: clamp(
+    10px,
+    3vw,
+    13px
+  );
+
+  line-height: 1.3;
 
   font-style: italic;
-  opacity: .75;
+
+  opacity: .72;
 }
+
+
+/* Small instruction */
 
 .env-cta {
   margin-top: auto;
-  padding-top: 8px;
 
-  font-size: clamp(10px, 2.8vw, 12px);
-
-  opacity: .55;
+  padding-top: 7px;
 
   display: flex;
   align-items: center;
-  gap: 6px;
+
+  gap: 5px;
+
+  font-size: clamp(
+    9px,
+    2.5vw,
+    11px
+  );
+
+  line-height: 1.2;
+
+  opacity: .55;
 }
 
-/* ---------- seal ---------- */
+
+/* =========================================================
+   SEAL
+   ========================================================= */
 
 .seal {
   position: absolute;
 
   left: 50%;
-  top: 52%;
+  top: 53%;
 
   transform: translate(-50%, -50%);
 
-  width: clamp(38px, 13vw, 52px);
+  width: clamp(
+    38px,
+    12vw,
+    50px
+  );
+
   aspect-ratio: 1;
 
   border-radius: 50%;
+
+  z-index: 6;
 
   display: flex;
   align-items: center;
@@ -203,60 +365,47 @@
   color: #fffdf6;
 
   font-family: "Baloo 2", sans-serif;
+
   font-weight: 700;
 
-  font-size: clamp(10px, 3vw, 13px);
+  font-size: clamp(
+    9px,
+    2.7vw,
+    12px
+  );
 
   box-shadow:
     0 3px 0 rgba(0,0,0,.15) inset,
     0 4px 10px -4px var(--shadow);
-
-  z-index: 5;
 }
+
+
+/* =========================================================
+   SIGNATURE
+   ========================================================= */
 
 .env-signoff {
   position: absolute;
 
   left: 0;
   right: 0;
-  bottom: 9%;
+
+  bottom: 8%;
+
+  z-index: 5;
 
   text-align: center;
 
-  font-size: clamp(9px, 2.5vw, 11px);
+  font-size: clamp(
+    8px,
+    2.4vw,
+    10px
+  );
 
-  letter-spacing: .12em;
-  opacity: .6;
+  letter-spacing: .13em;
 
-  z-index: 2;
+  opacity: .55;
 }
-
-  .env-letter{
-    position:absolute; left:6%; right:6%; top:6%; height:56%;
-    background:var(--paper);
-    border-radius:3px 3px 8px 8px;
-    box-shadow:0 8px 18px -10px var(--shadow);
-    padding:12% 9% 10%;
-    text-align:left;
-    z-index:4;
-    display:flex; flex-direction:column;
-  }
-  .env-label{
-    font-size:.62rem; letter-spacing:.14em; font-weight:600; opacity:.65;
-    padding-bottom:8px; border-bottom:1px solid var(--line); margin-bottom:10px;
-  }
-  .env-headline{
-    font-family:"Baloo 2",sans-serif; font-weight:700;
-    font-size:clamp(1.05rem, 4.6vw, 1.3rem);
-    line-height:1.18;
-  }
-  .env-sub{
-    margin-top:8px; font-size:.82rem; font-style:italic; opacity:.75; line-height:1.4;
-  }
-  .env-cta{
-    margin-top:auto; padding-top:10px; font-size:.72rem; opacity:.55;
-    display:flex; align-items:center; gap:6px;
-  }
 
   /* ---------- ensemble ---------- */
   .ensemble-head{margin-top:46px; text-align:center;}
