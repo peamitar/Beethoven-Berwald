@@ -52,6 +52,9 @@ a{color:inherit}
 /* ───────── hero ───────── */
 .hero{position:relative;text-align:center;padding:14px 18px 6px}
 .logo{position:relative;display:block;width:100%;max-width:none;height:auto;margin:0;}
+.when {margin-top: 18px;font-size: clamp(24px, 7.4vw, 31px);font-weight: 700;line-height: 1.2;letter-spacing: -.005em}
+.venue {margin-top: 6px;font-size: 15px;line-height: 1.5}
+.venue span {display: block;font-weight: 500}
 
 /* ───────── letters ───────── */
 .letters{padding:44px 18px 6px}
@@ -225,11 +228,6 @@ html[lang="th"] .bio .text{line-height:1.95}
   <main id="main">
     <section class="hero" aria-labelledby="concert">
       <div class="mark">
-        <div class="staff" aria-hidden="true"></div>
-        <svg class="d d-sq" viewBox="0 0 60 22" aria-hidden="true"><path d="M3 12q6-14 12 0t12 0 12 0 12 0" fill="none" stroke="#7bbde0" stroke-width="5" stroke-linecap="round"/></svg>
-        <svg class="d d-rest" viewBox="0 0 40 50" aria-hidden="true"><path d="M15 4 5 46M33 4 23 46" fill="none" stroke="#f76c41" stroke-width="7" stroke-linecap="round"/></svg>
-        <svg class="d d-hex" viewBox="0 0 40 36" aria-hidden="true"><path d="M10 2h20l9 16-9 16H10L1 18Z" fill="#f3e278"/></svg>
-        <svg class="d d-dots" viewBox="0 0 60 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="#7bbde0"/><circle cx="47" cy="13" r="11" fill="#7bbde0"/></svg>
         <h1 id="concert"><img class="logo" src="images/BANDB.png">
    </div>
       <p class="when"><time datetime="2026-09-25T18:00+07:00" data-i18n="when">25 Sep 2026 | 18.00</time></p>
@@ -541,8 +539,6 @@ function envelopeHTML(key){
       </div>
       <div class="env-letter" aria-hidden="true"><span class="g">Dearest Gentle Reader,</span><i></i><i></i><i></i><i></i></div>
       <div class="env-front">
-        <svg class="lips l1" viewBox="0 0 40 24" aria-hidden="true"><use href="#lips"/></svg>
-        <svg class="lips l2" viewBox="0 0 40 24" aria-hidden="true"><use href="#lips"/></svg>
         <div class="env-piece">${L.piece}</div>
       </div>
       <div class="flap" aria-hidden="true">
@@ -554,8 +550,6 @@ function envelopeHTML(key){
       </div>
       <div class="ov" aria-hidden="true">
         ${ringStamp("pm1", key, b ? "SEVEN VOICES · TWO LETTERS ·" : "TWO WORLDS · SEVEN VOICES ·", 226, 8.6)}
-        ${ringStamp("pm2", key, "25 SEP 2026 · 18.00 ·", 226, 9.2)}
-        ${HAND}
       </div>
     </div>
     <p class="cap"><span class="rom">${L.rom}</span><span><b>${L.piece}</b><br><span data-cap="${key}">${L.short.en}</span></span></p>
