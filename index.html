@@ -99,68 +99,259 @@
   .meta .venue{display:block; margin-top:2px; font-size:.85rem; opacity:.8;}
 
   /* ---------- envelope (diamond flap) ---------- */
-  .letters{margin-top:34px; display:flex; flex-direction:column; gap:26px;}
-  .envelope-btn{
-    border:none; background:none; padding:0; width:100%;
-    cursor:pointer; -webkit-tap-highlight-color:transparent;
-    display:block;
-  }
-  .envelope-btn:focus-visible .env-frame{outline:3px solid var(--sky); outline-offset:3px; border-radius:8px;}
-  .env-frame{
-    position:relative;
-    width:100%;
-    aspect-ratio: 3 / 3.7;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 12px 26px -16px var(--shadow);
-    transition:transform .18s ease;
-  }
-  .envelope-btn:active .env-frame{transform:scale(.985);}
-  .flap{position:absolute; inset:0;}
-  .flap-top{ background:var(--env-dark); clip-path:polygon(0% 0%, 100% 0%, 50% 52%); }
-  .flap-left{ background:var(--env); clip-path:polygon(0% 0%, 0% 100%, 50% 52%); }
-  .flap-right{ background:var(--env); clip-path:polygon(100% 0%, 100% 100%, 50% 52%); }
-  .flap-bottom{ background:var(--env); clip-path:polygon(0% 100%, 100% 100%, 50% 52%); }
+.letters{
+  margin-top:34px;
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+}
 
-  .seal{
-    position:absolute; left:50%; top:52%; transform:translate(-50%,-50%);
-    width:15%; aspect-ratio:1/1; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    color:#fffdf6; font-family:"Baloo 2",sans-serif; font-weight:700; font-size:.85rem;
-    box-shadow:0 3px 0 rgba(0,0,0,.15) inset, 0 4px 10px -4px var(--shadow);
-    z-index:3;
+.envelope-btn{
+  border:none;
+  background:none;
+  padding:0;
+  width:100%;
+  cursor:pointer;
+  display:block;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.envelope-btn:focus-visible .env-frame{
+  outline:3px solid var(--sky);
+  outline-offset:4px;
+}
+
+.env-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:1.55 / 1;
+  background:var(--env);
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 12px 26px -16px var(--shadow);
+  transition:transform .18s ease;
+}
+
+.envelope-btn:active .env-frame{
+  transform:scale(.985);
+}
+
+/* LETTER — behind the envelope */
+
+.env-letter{
+  position:absolute;
+  z-index:1;
+
+  left:10%;
+  right:10%;
+  top:5%;
+  height:76%;
+
+  background:var(--paper);
+  border-radius:3px 3px 5px 5px;
+
+  box-shadow:0 5px 14px -6px var(--shadow);
+
+  padding:7% 8% 6%;
+
+  text-align:left;
+
+  display:flex;
+  flex-direction:column;
+
+  overflow:hidden;
+  box-sizing:border-box;
+}
+
+/* ENVELOPE FLAPS */
+
+.flap{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+/* top triangular flap */
+
+.flap-top{
+  z-index:4;
+  background:var(--env-dark);
+  clip-path:polygon(
+    0 0,
+    100% 0,
+    50% 55%
+  );
+}
+
+/* left pocket */
+
+.flap-left{
+  z-index:5;
+  background:var(--env);
+  clip-path:polygon(
+    0 0,
+    50% 55%,
+    0 100%
+  );
+}
+
+/* right pocket */
+
+.flap-right{
+  z-index:5;
+  background:var(--env);
+  clip-path:polygon(
+    100% 0,
+    100% 100%,
+    50% 55%
+  );
+}
+
+/* bottom pocket */
+
+.flap-bottom{
+  z-index:6;
+  background:var(--env);
+  clip-path:polygon(
+    0 100%,
+    50% 55%,
+    100% 100%
+  );
+}
+
+/* SEAL */
+
+.seal{
+  position:absolute;
+  z-index:10;
+
+  left:50%;
+  top:55%;
+
+  transform:translate(-50%,-50%);
+
+  width:clamp(36px,11vw,48px);
+  aspect-ratio:1;
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#fffdf6;
+
+  font-family:"Baloo 2",sans-serif;
+  font-weight:700;
+  font-size:clamp(.65rem,2.5vw,.85rem);
+
+  box-shadow:
+    0 3px 0 rgba(0,0,0,.15) inset,
+    0 4px 10px -4px var(--shadow);
+}
+
+/* SIGNATURE */
+
+.env-signoff{
+  position:absolute;
+  z-index:8;
+
+  left:0;
+  right:0;
+  bottom:6%;
+
+  text-align:center;
+
+  font-size:clamp(.55rem,2.4vw,.68rem);
+  letter-spacing:.14em;
+  opacity:.6;
+}
+
+/* LETTER TYPOGRAPHY */
+
+.env-label{
+  flex-shrink:0;
+
+  margin:0 0 8px;
+  padding-bottom:7px;
+
+  border-bottom:1px solid var(--line);
+
+  font-size:clamp(.52rem,2.2vw,.62rem);
+  line-height:1.2;
+
+  letter-spacing:.14em;
+  font-weight:600;
+
+  opacity:.65;
+}
+
+.env-headline{
+  margin:0;
+
+  font-family:"Baloo 2",sans-serif;
+  font-weight:700;
+
+  font-size:clamp(.95rem,4.5vw,1.3rem);
+  line-height:1.15;
+
+  overflow-wrap:break-word;
+}
+
+.env-sub{
+  margin-top:7px;
+
+  font-size:clamp(.68rem,2.8vw,.82rem);
+  line-height:1.35;
+
+  font-style:italic;
+  opacity:.75;
+}
+
+.env-cta{
+  margin-top:auto;
+  padding-top:8px;
+
+  font-size:clamp(.58rem,2.4vw,.72rem);
+  line-height:1.2;
+
+  opacity:.55;
+
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+
+/* SMALL PHONES */
+
+@media (max-width:380px){
+
+  .wrap{
+    padding-left:16px;
+    padding-right:16px;
   }
-  .env-signoff{
-    position:absolute; left:0; right:0; bottom:9%; text-align:center;
-    font-size:.68rem; letter-spacing:.14em; opacity:.6; z-index:2;
+
+  .env-frame{
+    aspect-ratio:1.45 / 1;
   }
 
   .env-letter{
-    position:absolute; left:6%; right:6%; top:6%; height:56%;
-    background:var(--paper);
-    border-radius:3px 3px 8px 8px;
-    box-shadow:0 8px 18px -10px var(--shadow);
-    padding:12% 9% 10%;
-    text-align:left;
-    z-index:4;
-    display:flex; flex-direction:column;
+    left:9%;
+    right:9%;
+    top:5%;
+    height:75%;
+    padding:7% 8% 6%;
   }
-  .env-label{
-    font-size:.62rem; letter-spacing:.14em; font-weight:600; opacity:.65;
-    padding-bottom:8px; border-bottom:1px solid var(--line); margin-bottom:10px;
-  }
+
   .env-headline{
-    font-family:"Baloo 2",sans-serif; font-weight:700;
-    font-size:clamp(1.05rem, 4.6vw, 1.3rem);
-    line-height:1.18;
+    font-size:.92rem;
   }
+
   .env-sub{
-    margin-top:8px; font-size:.82rem; font-style:italic; opacity:.75; line-height:1.4;
+    font-size:.67rem;
   }
-  .env-cta{
-    margin-top:auto; padding-top:10px; font-size:.72rem; opacity:.55;
-    display:flex; align-items:center; gap:6px;
-  }
+}
 
   /* ---------- ensemble ---------- */
   .ensemble-head{margin-top:46px; text-align:center;}
@@ -279,23 +470,46 @@
     </p>
   </header>
 
-  <section class="letters">
-    <button class="envelope-btn" id="env-beethoven" aria-haspopup="dialog">
-      <span class="env-frame">
-        <span class="flap flap-bottom"></span>
-        <span class="flap flap-left"></span>
-        <span class="flap flap-right"></span>
-        <span class="flap flap-top"></span>
-        <span class="env-letter">
-          <span class="env-label" id="teaser-label-beethoven">A LETTER FROM BEETHOVEN</span>
-          <span class="env-headline" id="teaser-head-beethoven">Each with its own character, each expected to speak.</span>
-          <span class="env-sub" id="teaser-sub-beethoven">I did not wish for any of them to stand quietly in the corner.</span>
-          <span class="env-cta" id="teaser-cta-beethoven">Tap to open the letter</span>
+<section class="letters">
+
+  <button class="envelope-btn" id="env-beethoven" aria-haspopup="dialog">
+
+    <span class="env-frame">
+
+      <!-- Letter sits behind the envelope -->
+      <span class="env-letter">
+        <span class="env-label" id="teaser-label-beethoven">
+          A LETTER FROM BEETHOVEN
         </span>
-        <span class="seal" style="background:var(--coral)">LvB</span>
-        <span class="env-signoff">L. V. BEETHOVEN</span>
+
+        <span class="env-headline" id="teaser-head-beethoven">
+          Each with its own character, each expected to speak.
+        </span>
+
+        <span class="env-sub" id="teaser-sub-beethoven">
+          I did not wish for any of them to stand quietly in the corner.
+        </span>
+
+        <span class="env-cta" id="teaser-cta-beethoven">
+          Tap to open the letter
+        </span>
       </span>
-    </button>
+
+      <!-- Envelope folds sit over the letter -->
+      <span class="flap flap-bottom"></span>
+      <span class="flap flap-left"></span>
+      <span class="flap flap-right"></span>
+      <span class="flap flap-top"></span>
+
+      <span class="seal" style="background:var(--coral)">LvB</span>
+
+      <span class="env-signoff">L. V. BEETHOVEN</span>
+
+    </span>
+
+  </button>
+
+</section>
 
     <button class="envelope-btn" id="env-berwald" aria-haspopup="dialog">
       <span class="env-frame">
