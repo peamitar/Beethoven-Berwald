@@ -99,41 +99,137 @@
   .meta .venue{display:block; margin-top:2px; font-size:.85rem; opacity:.8;}
 
   /* ---------- envelope (diamond flap) ---------- */
-  .letters{margin-top:34px; display:flex; flex-direction:column; gap:26px;}
-  .envelope-btn{
-    border:none; background:none; padding:0; width:100%;
-    cursor:pointer; -webkit-tap-highlight-color:transparent;
-    display:block;
-  }
-  .envelope-btn:focus-visible .env-frame{outline:3px solid var(--sky); outline-offset:3px; border-radius:8px;}
-  .env-frame{
-    position:relative;
-    width:100%;
-    aspect-ratio: 3 / 3.7;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 12px 26px -16px var(--shadow);
-    transition:transform .18s ease;
-  }
-  .envelope-btn:active .env-frame{transform:scale(.985);}
-  .flap{position:absolute; inset:0;}
-  .flap-top{ background:var(--env-dark); clip-path:polygon(0% 0%, 100% 0%, 50% 52%); }
-  .flap-left{ background:var(--env); clip-path:polygon(0% 0%, 0% 100%, 50% 52%); }
-  .flap-right{ background:var(--env); clip-path:polygon(100% 0%, 100% 100%, 50% 52%); }
-  .flap-bottom{ background:var(--env); clip-path:polygon(0% 100%, 100% 100%, 50% 52%); }
+ .letters { width: 100%; margin-top: 28px; display: flex; flex-direction: column; gap: 22px;}
+ .envelope-btn { width: 100%; max-width: 100%; padding: 0; border: none; background: none;
+                display: block; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+ .env-frame { position: relative;
 
-  .seal{
-    position:absolute; left:50%; top:52%; transform:translate(-50%,-50%);
-    width:15%; aspect-ratio:1/1; border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    color:#fffdf6; font-family:"Baloo 2",sans-serif; font-weight:700; font-size:.85rem;
-    box-shadow:0 3px 0 rgba(0,0,0,.15) inset, 0 4px 10px -4px var(--shadow);
-    z-index:3;
-  }
-  .env-signoff{
-    position:absolute; left:0; right:0; bottom:9%; text-align:center;
-    font-size:.68rem; letter-spacing:.14em; opacity:.6; z-index:2;
-  }
+  /* Mobile-friendly size */
+  width: min(88vw, 380px);
+  aspect-ratio: 3 / 3.7;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 26px -16px var(--shadow);
+}
+
+/* ---------- envelope flaps ---------- */
+
+.flap { position: absolute; inset: 0; }
+.flap-top { background: var(--env-dark); clip-path: polygon(0% 0%, 100% 0%, 50% 52%); }
+.flap-left { background: var(--env); clip-path: polygon(0% 0%, 0% 100%, 50% 52%); }
+.flap-right { background: var(--env); clip-path: polygon(100% 0%, 100% 100%, 50% 52%); }
+.flap-bottom { background: var(--env); clip-path: polygon(0% 100%, 100% 100%, 50% 52%); }
+
+/* ---------- letter ---------- */
+.env-letter { position: absolute; left: 7%; right: 7%; top: 7%;
+              width: auto; height: 55%; box-sizing: border-box; background: var(--paper);
+              border-radius: 3px 3px 8px 8px; box-shadow: 0 8px 18px -10px var(--shadow);
+              padding: 8% 8% 7%; text-align: left; z-index: 4; display: flex;
+              flex-direction: column; overflow: hidden; 
+            }
+
+/* ---------- text ---------- */
+
+.env-label {
+  flex-shrink: 0;
+
+  font-size: clamp(9px, 2.5vw, 11px);
+  line-height: 1.2;
+
+  letter-spacing: .12em;
+  font-weight: 600;
+
+  opacity: .65;
+
+  padding-bottom: 7px;
+  margin-bottom: 9px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.env-headline {
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+
+  font-size: clamp(16px, 5vw, 21px);
+  line-height: 1.15;
+
+  overflow-wrap: break-word;
+}
+
+.env-sub {
+  margin-top: 7px;
+
+  font-size: clamp(11px, 3.2vw, 14px);
+  line-height: 1.35;
+
+  font-style: italic;
+  opacity: .75;
+}
+
+.env-cta {
+  margin-top: auto;
+  padding-top: 8px;
+
+  font-size: clamp(10px, 2.8vw, 12px);
+
+  opacity: .55;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- seal ---------- */
+
+.seal {
+  position: absolute;
+
+  left: 50%;
+  top: 52%;
+
+  transform: translate(-50%, -50%);
+
+  width: clamp(38px, 13vw, 52px);
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fffdf6;
+
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 700;
+
+  font-size: clamp(10px, 3vw, 13px);
+
+  box-shadow:
+    0 3px 0 rgba(0,0,0,.15) inset,
+    0 4px 10px -4px var(--shadow);
+
+  z-index: 5;
+}
+
+.env-signoff {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 9%;
+
+  text-align: center;
+
+  font-size: clamp(9px, 2.5vw, 11px);
+
+  letter-spacing: .12em;
+  opacity: .6;
+
+  z-index: 2;
+}
 
   .env-letter{
     position:absolute; left:6%; right:6%; top:6%; height:56%;
