@@ -55,8 +55,7 @@ a{color:inherit}
 /* ───────── hero ───────── */
 .hero{position:relative;text-align:center;padding:14px 18px 6px}
 .mark{position:relative;padding:46px 0 44px}
-.staff{position:absolute;left:-18px;right:-18px;top:0;bottom:0;background:repeating-linear-gradient(to bottom,transparent 0 9px,var(--orange) 9px 10.4px);filter:url(#wobble);opacity:.8;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent)}
-.logo{position:relative;display:block;width:min(90%,380px);height:auto;margin:0 auto}
+.logo{position:relative;display:block;width:100vw;max-width:none;height:auto;margin:0 calc(50% - 50vw);}
 .d{position:absolute;pointer-events:none}
 .d-sq{left:1%;top:16px;width:70px}
 .d-rest{right:4%;top:6px;width:30px}
@@ -247,7 +246,7 @@ html[lang="th"] .bio .text{line-height:1.95}
         <svg class="d d-rest" viewBox="0 0 40 50" aria-hidden="true"><path d="M15 4 5 46M33 4 23 46" fill="none" stroke="#f76c41" stroke-width="7" stroke-linecap="round"/></svg>
         <svg class="d d-hex" viewBox="0 0 40 36" aria-hidden="true"><path d="M10 2h20l9 16-9 16H10L1 18Z" fill="#f3e278"/></svg>
         <svg class="d d-dots" viewBox="0 0 60 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="#7bbde0"/><circle cx="47" cy="13" r="11" fill="#7bbde0"/></svg>
-        <h1 id="concert"><img class="logo" src="images/BANDB.png" width="1000" height="270">
+        <h1 id="concert"><img class="logo" src="images/BANDB.png">
    </div>
       <p class="when"><time datetime="2026-09-25T18:00+07:00" data-i18n="when">25 Sep 2026 | 18.00</time></p>
       <p class="venue"><span data-i18n="where">at Siam Ratchada Auditorium</span>Yamaha Music School Fortune Town</p>
