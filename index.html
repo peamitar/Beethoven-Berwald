@@ -97,357 +97,70 @@
   .meta{margin-top:14px; font-size:.95rem; opacity:.85;}
   .meta strong{font-weight:600;}
   .meta .venue{display:block; margin-top:2px; font-size:.85rem; opacity:.8;}
-/* ==========================================================
-   ENVELOPE
-   ========================================================== */
 
-.envelope-btn {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.envelope {
-  position: relative;
-
-  width: 100%;
-  max-width: 400px;
-
-  margin: 0 auto;
-
-  /*
-    Actual envelope proportion.
-    Much wider than the old 3 / 3.7.
-  */
-  aspect-ratio: 1.55 / 1;
-
-  filter: drop-shadow(
-    0 12px 16px rgba(40, 30, 20, .16)
-  );
-}
-
-
-/* ==========================================================
-   ENVELOPE BODY
-   ========================================================== */
-
-.envelope-back {
-  position: absolute;
-  inset: 0;
-
-  background: var(--env);
-
-  border-radius: 7px;
-
-  overflow: hidden;
-}
-
-
-/* ==========================================================
-   LETTER
-   ========================================================== */
-
-.letter {
-  position: absolute;
-
-  /*
-    Letter sits inside the envelope,
-    but sticks slightly above the pocket.
-  */
-
-  left: 11%;
-  right: 11%;
-
-  top: 4%;
-
-  height: 78%;
-
-  background: var(--paper);
-
-  border-radius: 3px 3px 2px 2px;
-
-  box-shadow:
-    0 4px 12px rgba(40, 30, 20, .16);
-
-  padding:
-    9%
-    8%
-    7%;
-
-  z-index: 2;
-
-  text-align: left;
-
-  display: flex;
-  flex-direction: column;
-
-  overflow: hidden;
-}
-
-
-/* letter content */
-
-.letter-label {
-  margin: 0 0 8px;
-
-  padding-bottom: 6px;
-
-  border-bottom: 1px solid var(--line);
-
-  font-family: Arial, sans-serif;
-
-  font-size: clamp(8px, 2.4vw, 10px);
-
-  letter-spacing: .14em;
-
-  text-transform: uppercase;
-
-  color: var(--muted);
-}
-
-.letter-title {
-  margin: 0;
-
-  font-family: Georgia, "Times New Roman", serif;
-
-  font-size: clamp(17px, 5.2vw, 25px);
-
-  line-height: 1.05;
-
-  font-weight: normal;
-
-  overflow-wrap: break-word;
-}
-
-.letter-subtitle {
-  margin-top: 7px;
-
-  font-size: clamp(10px, 3vw, 13px);
-
-  line-height: 1.35;
-
-  font-style: italic;
-
-  color: var(--muted);
-}
-
-.letter-cta {
-  margin-top: auto;
-
-  font-family: Arial, sans-serif;
-
-  font-size: clamp(8px, 2.5vw, 10px);
-
-  letter-spacing: .08em;
-
-  text-transform: uppercase;
-
-  color: var(--muted);
-}
-
-
-/* ==========================================================
-   ENVELOPE SIDE FOLDS
-   ========================================================== */
-
-.envelope-left {
-  position: absolute;
-  inset: 0;
-
-  z-index: 3;
-
-  background: var(--env-light);
-
-  clip-path: polygon(
-    0 0,
-    50% 50%,
-    0 100%
-  );
-}
-
-.envelope-right {
-  position: absolute;
-  inset: 0;
-
-  z-index: 3;
-
-  background: var(--env-light);
-
-  clip-path: polygon(
-    100% 0,
-    50% 50%,
-    100% 100%
-  );
-}
-
-
-/* ==========================================================
-   BOTTOM POCKET
-   ========================================================== */
-
-.envelope-bottom {
-  position: absolute;
-  inset: 0;
-
-  z-index: 4;
-
-  background: var(--env);
-
-  clip-path: polygon(
-    0 100%,
-    50% 50%,
-    100% 100%
-  );
-}
-
-
-/* ==========================================================
-   TOP FLAP
-   ========================================================== */
-
-.envelope-flap {
-  position: absolute;
-  inset: 0;
-
-  z-index: 5;
-
-  background: var(--env-dark);
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    50% 50%
-  );
-}
-
-
-/* ==========================================================
-   SEAL
-   ========================================================== */
-
-.envelope-seal {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  width: clamp(36px, 11vw, 48px);
-  height: clamp(36px, 11vw, 48px);
-
-  border-radius: 50%;
-
-  background: var(--seal);
-
-  z-index: 10;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #fff8ed;
-
-  font-family: Georgia, serif;
-
-  font-size: clamp(9px, 2.8vw, 12px);
-
-  font-weight: bold;
-
-  box-shadow:
-    inset 0 2px 3px rgba(255,255,255,.16),
-    0 3px 7px rgba(40,30,20,.2);
-}
-
-
-/* ==========================================================
-   SMALL SIGNATURE
-   ========================================================== */
-
-.envelope-signoff {
-  position: absolute;
-
-  left: 0;
-  right: 0;
-
-  bottom: 8%;
-
-  z-index: 8;
-
-  text-align: center;
-
-  font-family: Arial, sans-serif;
-
-  font-size: clamp(7px, 2.2vw, 9px);
-
-  letter-spacing: .14em;
-
-  color: rgba(50,35,20,.55);
-
-  text-transform: uppercase;
-}
-
-
-/* ==========================================================
-   TOUCH FEEDBACK
-   ========================================================== */
-
-.envelope-btn:active .envelope {
-  transform: scale(.985);
-}
-
-.envelope {
-  transition: transform .18s ease;
-}
-
-
-/* ==========================================================
-   SMALL PHONES
-   ========================================================== */
-
-@media (max-width: 340px) {
-
-  .page {
-    padding-left: 12px;
-    padding-right: 12px;
+  /* ---------- envelope (diamond flap) ---------- */
+  .letters{margin-top:34px; display:flex; flex-direction:column; gap:26px;}
+  .envelope-btn{
+    border:none; background:none; padding:0; width:100%;
+    cursor:pointer; -webkit-tap-highlight-color:transparent;
+    display:block;
+  }
+  .envelope-btn:focus-visible .env-frame{outline:3px solid var(--sky); outline-offset:3px; border-radius:8px;}
+  .env-frame{
+    position:relative;
+    width:100%;
+    aspect-ratio: 3 / 3.7;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 12px 26px -16px var(--shadow);
+    transition:transform .18s ease;
+  }
+  .envelope-btn:active .env-frame{transform:scale(.985);}
+  .flap{position:absolute; inset:0;}
+  .flap-top{ background:var(--env-dark); clip-path:polygon(0% 0%, 100% 0%, 50% 52%); }
+  .flap-left{ background:var(--env); clip-path:polygon(0% 0%, 0% 100%, 50% 52%); }
+  .flap-right{ background:var(--env); clip-path:polygon(100% 0%, 100% 100%, 50% 52%); }
+  .flap-bottom{ background:var(--env); clip-path:polygon(0% 100%, 100% 100%, 50% 52%); }
+
+  .seal{
+    position:absolute; left:50%; top:52%; transform:translate(-50%,-50%);
+    width:15%; aspect-ratio:1/1; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:#fffdf6; font-family:"Baloo 2",sans-serif; font-weight:700; font-size:.85rem;
+    box-shadow:0 3px 0 rgba(0,0,0,.15) inset, 0 4px 10px -4px var(--shadow);
+    z-index:3;
+  }
+  .env-signoff{
+    position:absolute; left:0; right:0; bottom:9%; text-align:center;
+    font-size:.68rem; letter-spacing:.14em; opacity:.6; z-index:2;
   }
 
-  .letter {
-    left: 10%;
-    right: 10%;
-    padding: 8%;
+  .env-letter{
+    position:absolute; left:6%; right:6%; top:6%; height:56%;
+    background:var(--paper);
+    border-radius:3px 3px 8px 8px;
+    box-shadow:0 8px 18px -10px var(--shadow);
+    padding:12% 9% 10%;
+    text-align:left;
+    z-index:4;
+    display:flex; flex-direction:column;
   }
-
-  .letter-title {
-    font-size: 16px;
+  .env-label{
+    font-size:.62rem; letter-spacing:.14em; font-weight:600; opacity:.65;
+    padding-bottom:8px; border-bottom:1px solid var(--line); margin-bottom:10px;
   }
-}
-
-
-/* ==========================================================
-   TABLET / DESKTOP
-   ========================================================== */
-
-@media (min-width: 600px) {
-
-  .page {
-    padding-top: 50px;
+  .env-headline{
+    font-family:"Baloo 2",sans-serif; font-weight:700;
+    font-size:clamp(1.05rem, 4.6vw, 1.3rem);
+    line-height:1.18;
   }
-
-  .envelope {
-    max-width: 420px;
+  .env-sub{
+    margin-top:8px; font-size:.82rem; font-style:italic; opacity:.75; line-height:1.4;
   }
-
-  .letter-title {
-    font-size: 25px;
+  .env-cta{
+    margin-top:auto; padding-top:10px; font-size:.72rem; opacity:.55;
+    display:flex; align-items:center; gap:6px;
   }
-}
-
 
   /* ---------- ensemble ---------- */
   .ensemble-head{margin-top:46px; text-align:center;}
@@ -574,8 +287,9 @@
         <span class="flap flap-right"></span>
         <span class="flap flap-top"></span>
         <span class="env-letter">
-          <span class="env-label" id="teaser-label-beethoven">Septet in E-flat major, Op. 20</span>
-          <span class="env-headline" id="teaser-head-beethoven">Ludwig van Beethoven</span>
+          <span class="env-label" id="teaser-label-beethoven">A LETTER FROM BEETHOVEN</span>
+          <span class="env-headline" id="teaser-head-beethoven">Each with its own character, each expected to speak.</span>
+          <span class="env-sub" id="teaser-sub-beethoven">I did not wish for any of them to stand quietly in the corner.</span>
           <span class="env-cta" id="teaser-cta-beethoven">Tap to open the letter</span>
         </span>
         <span class="seal" style="background:var(--coral)">LvB</span>
@@ -590,8 +304,9 @@
         <span class="flap flap-right"></span>
         <span class="flap flap-top"></span>
         <span class="env-letter">
-          <span class="env-label" id="teaser-label-berwald">Grand Septet in B-flat major</span>
-          <span class="env-headline" id="teaser-head-berwald">Franz Berwald</span>
+          <span class="env-label" id="teaser-label-berwald">A LETTER FROM BERWALD</span>
+          <span class="env-headline" id="teaser-head-berwald">The same seven voices were there.</span>
+          <span class="env-sub" id="teaser-sub-berwald">But I asked them different questions.</span>
           <span class="env-cta" id="teaser-cta-berwald">Tap to open the letter</span>
         </span>
         <span class="seal" style="background:var(--sky)">FB</span>
