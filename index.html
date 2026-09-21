@@ -187,59 +187,17 @@ html[lang="th"] .ltr .ask{font-family:var(--sans);font-weight:600;font-size:19px
 .nextbtn{appearance:none;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:26px;padding:0 24px;background:none;border:2px solid var(--ink);border-radius:999px;font-weight:600;font-size:15px}
 .nextbtn:active{background:rgba(35,34,30,.06)}
 
-/* ───────── musician postcard bio ───────── */
-
-.bio{position:relative;width:min(92vw, 760px);max-height:88vh;margin:auto;padding:34px;background:var(--paper);color:var(--ink);
-     display:grid;grid-template-columns:42% 58%;gap:28px;text-align:left;overflow-y:auto;border-radius:2px;
-     box-shadow:0 24px 45px -18px rgba(35,34,30,.45),0 2px 6px rgba(35,34,30,.14);
-
-/* postcard feeling */
-  transform:rotate(-1deg);
-  isolation:isolate;}
-
-/* postcard behind */
-.bio::before{content:"";position:absolute;inset:8px -10px -8px 10px;background:var(--paper);z-index:-1;transform:rotate(2deg);box-shadow:0 12px 24px -16px rgba(35,34,30,.4);}
-
-/* ───────── left side / photo ───────── */
-.bio .stamp-wrap{position:relative;width:100%;margin:0;transform:none;align-self:start;}
-.bio .stamp-wrap img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:1px;}
-
-/* decorative stamp */
-.bio .stamp-wrap::after{content:"MUSICIAN";position:absolute;right:-8px;top:-8px;width:62px;height:62px;
- display:grid;place-items:center;border:2px dashed var(--green-txt);border-radius:50%;font-family:var(--sans);
- font-size:8px;font-weight:700;letter-spacing:.08em;color:var(--green-txt);transform:rotate(8deg);opacity:.9;}
-
-/* ───────── right side / writing area ───────── */
-.bio h2{margin:0;font-size:26px;font-weight:700;line-height:1.2;letter-spacing:-.02em;}
-.bio .inst{margin-top:5px;font-family:var(--script);font-size:34px;line-height:1.1;color:var(--green-txt);}
-html[lang="th"] .bio .inst{font-family:var(--sans);font-size:20px;font-weight:600;margin-top:7px;}
-.bio .tag{margin-top:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.65;}
-
-/* postcard divider */
-.bio .text{position:relative;margin-top:20px;padding-top:18px;max-width:none;font-size:14.5px;line-height:1.7;}
-
-/* little horizontal postcard line */
-.bio .text::before{content:"";position:absolute;top:0;left:0;width:58px;height:1px;background:var(--ink);opacity:.25;}
-html[lang="th"] .bio .text{line-height:1.85;}
-
-/* ───────── navigation ───────── */
-
-.bio .pn{display:flex;gap:10px;margin-top:22px;}
-.bio .pn button{appearance:none;cursor:pointer;width:42px;height:38px;border-radius:50%;background:none;border:1px solid var(--ink);
-                display:grid; place-items:center;transition:background .2s ease,color .2s ease,transform .2s ease;}
-.bio .pn button:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px);}
-.bio .pn svg{width:17px;height:17px;}
-
-@media (max-width:600px){.bio{width:88vw;max-height:88vh;padding:22px;grid-template-columns:1fr;gap:20px;transform:rotate(-.7deg);}
-.bio .stamp-wrap{width:72%;margin:0 autoว}
-.bio .stamp-wrap img{aspect-ratio:4/3;}
-.bio .stamp-wrap::after{width:54px;height:54px;right:-7px;top:-7px;}
-.bio h2{font-size:22px;}
-.bio .inst{font-size:29px;}
- html[lang="th"] .bio .inst{font-size:19px;}
-.bio .text{font-size:14px;line-height:1.7;margin-top:16px;}
- html[lang="th"] .bio .text{line-height:1.8;}
-}
+.bio{padding:0 24px calc(26px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;align-items:center;text-align:center;overflow-y:auto}
+.bio .stamp-wrap{width:min(58%,190px);margin:2px 0 22px;transform:rotate(-3deg)}
+.bio h2{font-size:24px;font-weight:700;line-height:1.25}
+.bio .inst{font-family:var(--script);font-size:34px;line-height:1.2;color:var(--green-txt);margin-top:2px}
+html[lang="th"] .bio .inst{font-family:var(--sans);font-size:20px;font-weight:600;margin-top:4px}
+.bio .tag{margin-top:6px;font-size:14px;font-weight:500;opacity:.85}
+.bio .text{margin-top:16px;max-width:38ch;font-size:16px;line-height:1.75}
+html[lang="th"] .bio .text{line-height:1.95}
+.bio .pn{display:flex;gap:12px;margin-top:22px}
+.bio .pn button{appearance:none;cursor:pointer;width:52px;height:48px;border-radius:999px;background:none;border:2px solid var(--ink);display:grid;place-items:center}
+.bio .pn svg{width:20px;height:20px}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{transition-duration:.01ms!important;transition-delay:0s!important;animation-duration:.01ms!important}
