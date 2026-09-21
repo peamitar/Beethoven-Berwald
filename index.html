@@ -51,15 +51,12 @@ a{color:inherit}
 .lang button[aria-pressed="true"]{opacity:1}
 .lang button[aria-pressed="true"]::after{content:"";position:absolute;left:9px;right:9px;bottom:8px;height:2.5px;border-radius:2px;background:var(--orange)}
 .lang i{font-style:normal;opacity:.35}
-
-/* ───────── hero ───────── */
-.hero{position:relative;text-align:center;padding:14px 18px 6px}
-.logo {position: relative;display: block;width: 100vw;max-width: none;height: auto;margin-left: 50%;transform: translateX(-50%);}
-.logo{width:100vw;max-width:none;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);}
- }
+/* ───────── hero ───────── */ 
+.hero{position:relative;text-align:center;padding:14px 18px 6px} 
+.logo{position:relative;display:block;width:100%;height:auto;margin:0 auto;} @media (max-width: 600px){ 
+.logo{width:100vw;max-width:none;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);} }
 .when {margin-top: 40px;font-size: clamp(20px, 7.4vw, 25px);font-family:var(--type);font-weight: 700;line-height: 1.2;letter-spacing: -.005em}
-.venue {margin-top: 6px;font-size: 15px;line-height: 1.5}
-.venue span {display: block;font-weight: 500}
+.venue {margin-top: 6px;font-size: 15px;line-height: 1.5} .venue span {display: block;font-weight: 500}
 
 /* ───────── letters ───────── */
 .letters{padding:44px 18px 6px}
