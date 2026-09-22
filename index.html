@@ -53,7 +53,7 @@ a{color:inherit}
 .lang i{font-style:normal;opacity:.35}
 
 /* ───────── hero ───────── */
-.hero{position:relative;text-align:center;padding:14px 18px 6px}
+.hero{position:relative;text-align:center;width:100%;padding:14px 0 6px;overflow-x:clip}
 .mark{position:relative;padding:46px 0 44px}
 .staff{position:absolute;left:-18px;right:-18px;top:0;bottom:0;background:repeating-linear-gradient(to bottom,transparent 0 9px,var(--orange) 9px 10.4px);filter:url(#wobble);opacity:.8;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 86%,transparent)}
 .logo{position:relative;display:block;width:min(90%,380px);height:auto;margin:0 auto}
@@ -313,27 +313,9 @@ html[lang="th"] .when{font-size:clamp(17px,5.3vw,21px)}
         opacity: .85
     }
 
-    .cap {
-        display: flex;
-        gap: 12px;
-        align-items: baseline;
-        margin-top: 20px;
-        padding: 0 4px;
-        font-size: 14.5px;
-        line-height: 1.4
-    }
-
-    .cap .rom {
-        font-family: var(--type);
-        font-size: 30px;
-        line-height: 1;
-        color: var(--acc-txt);
-        min-width: 28px
-    }
-
-    .cap b {
-        font-weight: 600
-    }
+    .cap{display:flex;gap:12px;align-items:baseline;margin-top:20px;padding:0 4px;font-size:14.5px;line-height:1.4}
+    .cap .rom{font-family:var(--script);font-size:32px;line-height:1;color:var(--acc-txt);min-width:28px}
+    .cap b{font-weight:600}
 
     .then {
         align-self: center;
@@ -661,7 +643,6 @@ html[lang="th"] .bio .text{line-height:1.95}
       </div></div>
       <a class="btn" href="https://qr.generatorqr.com/904wXym3q" target="_blank" rel="noopener" data-i18n="getTix">Get tickets</a>
       <p class="addr"><span data-i18n="where">at Siam Ratchada Auditorium</span><br>Yamaha Music School Fortune Town</p>
-
     </footer>
   </main>
 </div>
